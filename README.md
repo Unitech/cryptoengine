@@ -1,7 +1,5 @@
 # CryptoEngine
 
-![CryptoEngine](https://github.com/unitech/cryptoengine/raw/master/image.jpg)
-
 Monitor incoming transactions and validates transactions (based on minimum confirmations).
 It can connect to litecoind, bitcoind and other equivalent daemon.
 

@@ -1,4 +1,3 @@
-
 # CryptoEngine
 
 Monitor incoming transactions and validates transactions (based on minimum confirmations).
@@ -9,11 +8,15 @@ NodeJS library, and the code is quite clean.
 
 ## Support
 
-I can provide support to use it or customize it, contact me at : as AT unitech DOT io
+Before publishing sources and correcting some things, I would like to know if any company or people is interested about sponsoring the util.
 
-Donate at :
 LTC : LS8upeXjDbEyGZ4TwYRWdJeUdbnftRMibW
+
 BTC : 1BujZemR8mjUc4zSZTV8UHHQ8mupGTPsfj
+
+Feel free to tell me your name by email at as AT unitech DOT io, you will be listed as a sponsor on the README and later on the website !
+
+I can also provide support to use it or customize it.
 
 ## Quick example
 

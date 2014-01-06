@@ -12,7 +12,9 @@ NodeJS library, and the code is quite clean.
 I can provide support to use it or customize it, contact me at : as AT unitech DOT io
 
 Donate at :
+
 LTC : LS8upeXjDbEyGZ4TwYRWdJeUdbnftRMibW
+
 BTC : 1BujZemR8mjUc4zSZTV8UHHQ8mupGTPsfj
 
 ## Quick example

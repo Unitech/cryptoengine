@@ -1,0 +1,33 @@
+{
+  "name": "cryptoengine",
+  "version": "1.0.0",
+  "description": "Monitor and verify transactions from a local or remote litecoin/bitcoin/... deamon",
+  "main": "index.js",
+  "engines" : {
+    "node" : ">=0.8"
+  },
+  "author": {
+    "name": "Strzelewicz Alexandre",
+    "email": "as@unitech.io",
+    "url": "http://pm2.io"
+  },
+  "contributors": [],
+  "homepage" : "https://github.com/Unitech/crypto-engine",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "dependencies" : {
+    "mongoose"      : "*",
+    "bitcoin"       : "*",
+    "debug"         : "*",
+    "each"          : "*",
+    "underscore"    : "*"
+  },
+  "author": "",
+  "repository": {
+    "type" : "git",
+    "url" : "git://github.com/Unitech/crypto-engine.git"
+  },
+  "license": "MIT"
+}

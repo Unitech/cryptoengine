@@ -12,7 +12,7 @@
     "url": "http://pm2.io"
   },
   "contributors": [],
-  "homepage" : "https://github.com/Unitech/crypto-engine",
+  "homepage" : "https://github.com/Unitech/cryptoengine",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -27,7 +27,7 @@
   "author": "",
   "repository": {
     "type" : "git",
-    "url" : "git://github.com/Unitech/crypto-engine.git"
+    "url" : "git://github.com/Unitech/cryptoengine.git"
   },
   "license": "MIT"
 }

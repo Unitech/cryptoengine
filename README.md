@@ -178,6 +178,19 @@ Finally launch it :
 $ ./litecoind -daemon -dbcache=1000
 ```
 
+# Run tests
+
+Install mocha
+
+```bash
+$ npm install mocha -g
+```
+Install chai
+
+```bash
+$ npm install chai -g
+```
+
 # Thanks
 
 https://github.com/biggora/caminte

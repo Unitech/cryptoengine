@@ -63,7 +63,28 @@ ltc1.channel.on('transaction:incoming', function(tx) {
 
 ## Database options
 
-Settings for MySQL
+Supported databse list https://github.com/biggora/caminte/tree/master/lib/adapters
+
+###Settings for MongoDB
+
+For MongoDB database need install mongodb client. Then:
+
+```bash
+$ npm install mongodb -g
+```
+
+```js
+{
+     driver     : "mongodb",
+     url        : "localhost",
+     port       : "27017",
+     username   : "test",
+     password   : "test",
+     database   : "test"
+};
+```
+
+###Settings for MySQL
 
 For MySQL database need install mysql client. Then:
 
@@ -83,7 +104,7 @@ $ npm install mysql -g
 };
 ```
 
-Settings for Redis
+###Settings for Redis
 
 For Redis database need install redis client. Then:
 
@@ -99,7 +120,7 @@ $ npm install redis -g
 };
 ```
 
-Settings for SQLite
+###Settings for SQLite
 
 For SQLite database need install sqlite3 client. Then:
 

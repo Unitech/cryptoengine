@@ -1,4 +1,3 @@
-
 # CryptoEngine
 
 Monitor incoming transactions and validates transactions (based on minimum confirmations).
@@ -28,7 +27,11 @@ var ltc1 = new CryptoEngine({
   instance_name : 'LTC1',
   minimum_confirmations : 5,
   refresh_ratio : 2,
-  mongo_database : 'mongodb://localhost/devdb4',
+  coin: 'coinName',
+  database : { //Database settings
+    driver:'mongodb'
+    url: 'mongodb://localhost/devdb4',
+  }
   crypto_daemon : {
     host : process.env.LITECOIND_HOST,
     port : process.env.LITECOIND_PORT,
@@ -56,6 +59,80 @@ ltc1.channel.on('transaction:confirmation:validated', function(tx) {
 ltc1.channel.on('transaction:incoming', function(tx) {
   console.log('New transaction incoming = ', tx);
 });
+```
+
+## Database options
+
+Supported databse list https://github.com/biggora/caminte/tree/master/lib/adapters
+
+###Settings for MongoDB
+
+For MongoDB database need install mongodb client. Then:
+
+```bash
+$ npm install mongodb -g
+```
+
+```js
+{
+     driver     : "mongodb",
+     url        : "localhost",
+     port       : "27017",
+     username   : "test",
+     password   : "test",
+     database   : "test"
+};
+```
+
+###Settings for MySQL
+
+For MySQL database need install mysql client. Then:
+
+```bash
+$ npm install mysql -g
+```
+
+```js
+{
+     driver     : "mysql",
+     host       : "localhost",
+     port       : "3306",
+     username   : "test",
+     password   : "test",
+     database   : "test"
+     pool       : true // optional for use pool directly 
+};
+```
+
+###Settings for Redis
+
+For Redis database need install redis client. Then:
+
+```bash
+$ npm install redis -g
+```
+
+```js
+{
+     driver     : "redis",
+     host       : "localhost",
+     port       : "6379"
+};
+```
+
+###Settings for SQLite
+
+For SQLite database need install sqlite3 client. Then:
+
+```bash
+$ npm install sqlite3 -g
+```
+
+```js
+{
+     driver     : "sqlite3",
+     database   : "/db/mySite.db"
+};
 ```
 
 ## Debug mode
@@ -100,6 +177,29 @@ Finally launch it :
 ```bash
 $ ./litecoind -daemon -dbcache=1000
 ```
+
+# Run tests
+
+Install mocha
+
+```bash
+$ npm install mocha -g
+```
+Install chai
+
+```bash
+$ npm install chai -g
+```
+
+And run
+
+```bash
+$ npm test
+```
+
+# Thanks
+
+https://github.com/biggora/caminte
 
 # License
 

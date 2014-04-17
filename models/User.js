@@ -1,51 +1,38 @@
+"use strict";
 
-var mongoose = require('mongoose');
-var Schema   = mongoose.Schema, ObjectID = Schema.ObjectId;
-var debug    = require('debug')('model:User');
+module.exports = function(Schema) {
+    var User = Schema.define('User', {
+        username: {
+            type: String,
+            index:true
+        },
+        email: {
+            type: String,
+            index: true
+        },
 
-var UserSchema = new mongoose.Schema({
-  username : {
-    type : String,
-    required : true,
-    index: {
-      unique: true,
-      dropDups: true
-    }
-  },
-  email : {
-    type : String,
-    index: {
-      unique: true,
-      dropDups: true
-    }
-  },
+        ltc_address: {
+            type: String,
+            index: true
+        },
+        btc_address: {
+            type: String,
+            index: true
+        },
 
-  ltc_address : {
-    type : String,
-    index: {
-      unique: true,
-      dropDups: true
-    }
-  },
-  btc_address : {
-    type : String,
-    index: {
-      unique: true,
-      dropDups: true
-    }
-  },
+        updated_at: { type: Date, default: Date.now },
+        created_at: { type: Date, default: Date.now }
+    });
 
-  updated_at : { type : Date, default : Date.now },
-  created_at : { type : Date, default : Date.now }
-});
+    //Check unique field
+    User.validatesUniquenessOf('ltc_address','email','username','btc_address');
+    //Check required fields
+    User.validatesPresenceOf('ltc_address','email','username','btc_address');
 
-UserSchema.pre('save', function(next) {
-  if (this.isNew) {
-    // Process once new
-    return next();
-  }
-  this.updated_at = Date.now();
-  return next();
-});
+    User.beforeUpdate = function (next) {
+        this.updated_at = Date.now();
+        return next();
+    };
 
-module.exports = mongoose.model('User', UserSchema);
+    return User;
+}

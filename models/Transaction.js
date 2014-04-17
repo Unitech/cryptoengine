@@ -1,40 +1,54 @@
+"use strict";
 
+module.exports = function(Schema) {
+    var Transaction = Schema.define('Transaction', {
+        category: {
+            type: String
+        },
+        address: {
+            type: String
+        },
+        amount: {
+            type: Number
+        },
+        txid: {
+            type: String,
+            index: true
+        },
+        account : {
+            type : String
+        },
+        confirmations: {
+            type: Number
+        },
+        time: {
+            type: Number
+        },
 
+        is_fully_confirmed: {
+            type: Boolean,
+            default: false
+        },
+        confirmed_at: {
+            type: Date
+        },
 
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema, ObjectID = Schema.ObjectId;
+        updated_at: {
+            type: Date,
+            default: Date.now
+        },
+        created_at: {
+            type: Date,
+            default: Date.now
+        }
+    });
 
-var TransactionSchema = new Schema({
-  category      : {type : String, required : true},
-  address       : {type : String, required : true},
-  amount        : {type : Number, required : true},
-  txid          : {
-    type : String,
-    required : true
-  },
-  confirmations : {type : Number, required : true},
-  time          : {type : Number, required : true},
+    Transaction.validatesPresenceOf('category', 'address','amount','txid','account','confirmations','time');
 
-  is_fully_confirmed : {type : Boolean, default : false},
-  confirmed_at       : {type : Date},
+    Transaction.beforeUpdate = function (next) {
+        this.updated_at = Date.now();
+        return next();
+    };
 
-  updated_at    : {type : Date, default : Date.now},
-  created_at    : {type : Date, default : Date.now}
-});
-
-TransactionSchema.pre('save', function(next) {
-  if (this.isNew) {
-    // first time the object is created
-    return next();
-  }
-  this.updated_at = Date.now();
-  return next();
-});
-
-TransactionSchema.methods.confirm = function(cb) {
-  this.is_fully_confirmed = true;
-  this.confirmed_at = Date.now();
-  this.save(cb);
-};
-
-module.exports = TransactionSchema;
+    return Transaction;
+}

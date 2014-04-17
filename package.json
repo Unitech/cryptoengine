@@ -11,14 +11,20 @@
     "email": "as@unitech.io",
     "url": "http://pm2.io"
   },
-  "contributors": [],
+  "contributors": [
+      {
+          "name": "Mike Bazhenov",
+          "email": "imike.rus@gmail.com",
+          "url": "https://github.com/MikeBazhenov"
+      }
+  ],
   "homepage" : "https://github.com/Unitech/cryptoengine",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests"
   },
   "repository": "",
   "dependencies" : {
-    "mongoose"      : "*",
+    "caminte"      : "*",
     "bitcoin"       : "*",
     "debug"         : "*",
     "each"          : "*",

@@ -191,6 +191,12 @@ Install chai
 $ npm install chai -g
 ```
 
+And run
+
+```bash
+$ npm test
+```
+
 # Thanks
 
 https://github.com/biggora/caminte
